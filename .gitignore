@@ -1,0 +1,29 @@
+# temporary and build files
+*~
+*.pyc
+build/
+dist/
+*.lock
+*.swp
+*.out
+*.log
+*.pid
+*.cache
+
+# IDE files:
+.idea
+.xpr
+
+logs/
+
+# OS generated files
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# local settings
+settings_local.py
+
+/static/
+/media/

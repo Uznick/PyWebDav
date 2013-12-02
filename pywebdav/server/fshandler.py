@@ -259,7 +259,7 @@ class FilesystemHandler(dav_interface):
             log.info('put: Created %s' % uri)
         except:
             import traceback
-            print traceback.format_exc()
+            log.info(traceback.format_exc())
             log.info('put: Could not create %s' % uri)
             raise DAV_Error, 424
 

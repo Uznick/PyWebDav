@@ -245,6 +245,9 @@ class FilesystemHandler(dav_interface):
         """ put the object into the filesystem """
         path=self.uri2local(uri)
         try:
+            if not os.path.exists('/'.join(path.split('/')[:-1])):
+                os.makedirs('/'.join(path.split('/')[:-1]))
+
             fp=open(path, "w+")
             if isinstance(data, types.GeneratorType):
                 for d in data:
@@ -255,6 +258,8 @@ class FilesystemHandler(dav_interface):
             fp.close()
             log.info('put: Created %s' % uri)
         except:
+            import traceback
+            print traceback.format_exc()
             log.info('put: Could not create %s' % uri)
             raise DAV_Error, 424
 
